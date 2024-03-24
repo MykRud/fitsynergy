@@ -98,6 +98,7 @@
                 </executions>
             </plugin>
         </plugins>
+        <finalName>fitsynergy-0.0.1-SNAPSHOT</finalName>
     </build>
 
 </project>
