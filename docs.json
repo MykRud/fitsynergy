@@ -1,0 +1,1191 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "OpenAPI definition",
+    "version": "v0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost",
+      "description": "Generated server url"
+    }
+  ],
+  "tags": [
+    {
+      "name": "APIs for Constructor of FitSynergy",
+      "description": "APIs for Constructor to CREATE, UPDATE, ENRICH, FETCH AND DELETE program (for trainer and admin)"
+    },
+    {
+      "name": "APIs for working with clients' programs of FitSynergy",
+      "description": "APIs for working with CREATE, UPDATE, ENRICH, FETCH AND DELETE operations on program (for client, trainer, admin)"
+    },
+    {
+      "name": "APIs for exercise' based CRUD of FitSynergy",
+      "description": "APIs for CRUD to CREATE, UPDATE, ENRICH, FETCH AND DELETE exercises (for trainer and admin)"
+    },
+    {
+      "name": "APIs for general program processings of FitSynergy",
+      "description": "APIs for program to CREATE, UPDATE, ENRICH, FETCH AND DELETE program (for trainer and admin)"
+    },
+    {
+      "name": "APIs for client processes of FitSynergy",
+      "description": "APIs to CREATE, UPDATE, ENRICH, FETCH AND DELETE client"
+    },
+    {
+      "name": "APIs for trainer processes of FitSynergy",
+      "description": "APIs to CREATE, UPDATE, ENRICH, FETCH AND DELETE trainer"
+    },
+    {
+      "name": "APIs for general user processes of FitSynergy",
+      "description": "APIs to AUTHENTICATE, AUTHORIZATE, REGISTER, CREATE, UPDATE, ENRICH, FETCH AND DELETE user"
+    },
+    {
+      "name": "APIs for Main User's Dashboard of FitSynergy",
+      "description": "APIs for working with user's Dashboard with different abilities and analytics (for client, trainer and admin)"
+    }
+  ],
+  "paths": {
+    "/api/program-client": {
+      "get": {
+        "tags": [
+          "APIs for working with clients' programs of FitSynergy"
+        ],
+        "summary": "Get all programs view API",
+        "description": "API to get view of all programs based on client id",
+        "operationId": "working_with_clients",
+        "responses": {
+          "500": {
+            "description": "HTTP Status Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "HTTP Status CREATED",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/program-client/{programClientId}": {
+      "get": {
+        "tags": [
+          "APIs for working with clients' programs of FitSynergy"
+        ],
+        "summary": "Get program view API",
+        "description": "API to get view of program with all its progressings and processings based on program id. Here we have lots of analytics data as execution time per weak(s), executed activities per month(s), days statistics as long as incoming exercises, completed exercises, etc",
+        "operationId": "working_with_program",
+        "parameters": [
+          {
+            "name": "programClientId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "HTTP Status Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "HTTP Status CREATED",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/program-client/{programClientId}/subscribe": {
+      "get": {
+        "tags": [
+          "APIs for working with clients' programs of FitSynergy"
+        ],
+        "summary": "Subscribe on program API",
+        "description": "The subscription method in our fitness system handles the user enrollment process into fitness programs, utilizing a secure gateway API for seamless processing. This method enables users to access fitness content, ensuring a subscription model within our platform.",
+        "operationId": "subscribe",
+        "parameters": [
+          {
+            "name": "programId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "HTTP Status Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "HTTP Status CREATED",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/program-client/exercises/{exerciseId}": {
+      "get": {
+        "tags": [
+          "APIs for working with clients' programs of FitSynergy"
+        ],
+        "summary": "Get all exercises of program API",
+        "description": "This method retrieves a comprehensive list of exercises associated with a specific fitness program in our system. This function allows seamless access to detailed information on all exercises included in the designated fitness program, facilitating personalized and effective workout routines for users.",
+        "operationId": "exercises_program",
+        "parameters": [
+          {
+            "name": "exerciseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "HTTP Status Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "HTTP Status CREATED",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/program-client/exercises/{exerciseId}/": {
+      "get": {
+        "tags": [
+          "APIs for working with clients' programs of FitSynergy"
+        ],
+        "summary": "Get all exercises of program API",
+        "description": "This method retrieves a comprehensive list of exercises associated with a specific fitness program in our system. This function allows seamless access to detailed information on all exercises included in the designated fitness program, facilitating personalized and effective workout routines for users.",
+        "operationId": "exercises_program",
+        "parameters": [
+          {
+            "name": "exerciseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "HTTP Status Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "HTTP Status CREATED",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/program-client/exercises/recordTime/{exerciseId}": {
+      "post": {
+        "tags": [
+          "APIs for working with clients' programs of FitSynergy"
+        ],
+        "summary": "Record time of execution API",
+        "description": "The function captures and logs the time of execution for a specific exercise within our fitness system. This feature enables users to track and analyze their workout performance over time, providing valuable insights into exercise duration and progress within their fitness regimen.",
+        "operationId": "recordTime",
+        "parameters": [
+          {
+            "name": "exerciseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Timer Request Dto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "500": {
+            "description": "HTTP Status Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "HTTP Status CREATED",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/construct": {
+      "get": {
+        "tags": [
+          "APIs for Constructor of FitSynergy"
+        ],
+        "summary": "Get initial constructor view API",
+        "description": "API to get initial constructor view to create initiate processing for creating program inside FitSynergy system",
+        "operationId": "getConstructorInitView",
+        "responses": {
+          "200": {
+            "description": "HTTP Status OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "HTTP Status Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "417": {
+            "description": "Expectation Failed",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/api/construct/": {
+      "post": {
+        "tags": [
+          "APIs for Constructor of FitSynergy"
+        ],
+        "summary": "Create Program API",
+        "description": "API to create new program for client inside FitSynergy system. This program doesn't contain any exercises, only initalized data",
+        "operationId": "constructorInitLogic",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Program Request Dto"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "HTTP Status OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "HTTP Status Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "417": {
+            "description": "Expectation Failed",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/construct/enrich/{programId}/": {
+      "get": {
+        "tags": [
+          "APIs for Constructor of FitSynergy"
+        ],
+        "summary": "Get enrich view of constructor API",
+        "description": "API to get enrich constructor view to enrich program with desired exercises inside FitSynergy system",
+        "operationId": "getConstructorView",
+        "parameters": [
+          {
+            "name": "programId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "HTTP Status OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "HTTP Status Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "417": {
+            "description": "Expectation Failed",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/construct/enrich/{programId}": {
+      "post": {
+        "tags": [
+          "APIs for Constructor of FitSynergy"
+        ],
+        "summary": "Enrich Program API",
+        "description": "API to enrich program with exercises based on programId",
+        "operationId": "enrichProgramWithExercises",
+        "parameters": [
+          {
+            "name": "programId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Exercise Request Dto"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "HTTP Status OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "HTTP Status Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "417": {
+            "description": "Expectation Failed",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/programs/{programId}": {
+      "get": {
+        "tags": [
+          "APIs for general program processings of FitSynergy"
+        ],
+        "summary": "Get program API",
+        "description": "API retrieves comprehensive information on all available fitness programs within our system, facilitating informed decisions for users considering further subscription. This functionality provides detailed insights into program features, duration, and associated benefits, empowering users to make well-informed choices based on their fitness preferences and goals.",
+        "operationId": "getProgram",
+        "parameters": [
+          {
+            "name": "programId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "HTTP Status OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "HTTP Status Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "417": {
+            "description": "Expectation Failed",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/program/{programId}/exercises": {
+      "post": {
+        "tags": [
+          "APIs for general program processings of FitSynergy"
+        ],
+        "summary": "Get program exercises API",
+        "description": "API retrieves a detailed dataset encompassing all exercise-related information within a specific fitness program available in our system. This feature equips users with a comprehensive overview of exercises, including descriptions, difficulty levels, and recommended durations, aiding them in making informed decisions when selecting a program based on their fitness objectives and preferences.",
+        "operationId": "getProgramExercises",
+        "parameters": [
+          {
+            "name": "programId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Exercise Request Dto"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "HTTP Status OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "HTTP Status Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "417": {
+            "description": "Expectation Failed",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/dashboard/": {
+      "get": {
+        "tags": [
+          "APIs for Main User's Dashboard of FitSynergy"
+        ],
+        "summary": "Get Main Dashboard and its Analytics API",
+        "description": "The main dashboard serves as the central hub for users, providing a comprehensive overview of their fitness journey. It prominently displays currently active programs, allowing users to seamlessly access ongoing training regimens. Additionally, the dashboard features a section dedicated to upcoming exercises, ensuring users stay informed about their upcoming workout routines. Furthermore, users can conveniently review their completed exercises, fostering a sense of accomplishment and providing a visual representation of their progress. The inclusion of robust analytics on the main dashboard empowers users with insightful data, including performance metrics, trends, and achievements, fostering a data-driven approach to fitness and enhancing the overall user experience within our system.",
+        "operationId": "mainDashboard",
+        "responses": {
+          "200": {
+            "description": "Analytics",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Activity Dashboard Response Dto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "HTTP Status Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "417": {
+            "description": "Expectation Failed",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users/log-in": {
+      "get": {
+        "tags": [
+          "APIs for general user processes of FitSynergy"
+        ],
+        "summary": "API to log in into FitSynergy",
+        "description": "API allows users to securely access our system by providing valid credentials. This authentication process verifies user identity, granting authorized access to personalized fitness profiles, training history, and other user-specific data within the platform.",
+        "operationId": "logInPage",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Log In Request Dto"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "HTTP Status OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "HTTP Status Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "417": {
+            "description": "Expectation Failed",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users/sign-up/": {
+      "get": {
+        "tags": [
+          "APIs for general user processes of FitSynergy"
+        ],
+        "summary": "Get registration page API",
+        "description": "API to get registration page view to create new user inside FitSynergy system",
+        "operationId": "registerNewClientPage",
+        "responses": {
+          "200": {
+            "description": "HTTP Status OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "HTTP Status Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "417": {
+            "description": "Expectation Failed",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users/sign-up": {
+      "post": {
+        "tags": [
+          "APIs for general user processes of FitSynergy"
+        ],
+        "summary": "Logic of registration API",
+        "description": "API that enables users to create an account within our system by supplying essential information such as username, email, and password. Upon successful registration, users gain access to personalized features, including the ability to set fitness goals, track progress, and engage with various programs and exercises offered on our platform.",
+        "operationId": "registerNewClientPage",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Registration Request Dto"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "HTTP Status OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "HTTP Status Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "417": {
+            "description": "Expectation Failed",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+
+
+
+  "components": {
+    "schemas": {
+      "Timer Request Dto": {
+        "type": "object",
+        "properties": {
+          "executionTime": {
+            "type": "integer",
+            "description": "Holding execution time of exercise",
+            "format": "int64"
+          },
+          "startDate": {
+            "type": "string",
+            "description": "Start date of execution",
+            "format": "date-time"
+          }
+        },
+        "description": "Schema to hold timer data"
+      },
+
+      "Graph Dashboard Response Dto": {
+        "type": "object",
+        "properties": {
+          "days": {
+            "type": "string",
+            "description": "Days to show on graph",
+            "example": "01 March, 04 March, 05 March"
+          },
+          "time": {
+            "type": "string",
+            "description": "Execution time to show on graph",
+            "example": "40 minutes, 25 minutes, 55 minutes"
+          }
+        },
+        "description": "Schema to hold main data for graph"
+      },
+
+      "Occupation Request Dto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of occupation",
+            "example": "Gymnastics"
+          }
+        },
+        "description": "Schema to hold main occupation's data"
+      },
+
+
+      "Program Request Dto": {
+        "type": "object",
+        "properties": {
+          "programName": {
+            "type": "string",
+            "description": "Name of program",
+            "example": "Pull Ups program"
+          },
+          "occupationId": {
+            "type": "string",
+            "description": "Holding occupation id retrieved from frontend",
+            "example": "1"
+          },
+          "level": {
+            "type": "string",
+            "description": "Level of program",
+            "example": "EASY, MEDIUM, HARD, VERY HARD"
+          }
+        },
+        "description": "Schema to hold main program's data"
+      },
+
+      "Program Response Dto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Holding program id retrieved from frontend",
+            "example": "1"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of program",
+            "example": "Pull Ups program"
+          },
+          "occupation": {
+            "type": "string",
+            "description": "Holding an occupation",
+            "example": "Gymnastics"
+          },
+          "level": {
+            "type": "string",
+            "description": "Level of program",
+            "example": "EASY, MEDIUM, HARD, VERY HARD"
+          },
+          "startDate": {
+            "type": "string",
+            "description": "Exercise: Start date of execution",
+            "example": "2024-02-01"
+          },
+          "completeDate": {
+            "type": "string",
+            "description": "Exercise: Complete date of execution",
+            "example": "2024-02-01"
+          },
+          "completed": {
+            "type": "string",
+            "description": "Is exercise completed or not",
+            "example": "false"
+          },
+          "client": {
+            "type": "string",
+            "description": "Holding an client details",
+            "example": "Misha Rudyk"
+          },
+          "exercises": {
+            "type": "string",
+            "description": "Holding desired exercises of program (incoming / active / completed etc)",
+            "example": "Pull Ups, Push Ups, Straips"
+          }
+        },
+        "description": "Schema to hold main program's data"
+      },
+
+      "Exercise Request Dto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of exercise",
+            "example": "Pull Ups"
+          },
+          "sets": {
+            "type": "integer",
+            "description": "Exercise: Number of Sets",
+            "format": "int32",
+            "example": 5
+          },
+          "reps": {
+            "type": "integer",
+            "description": "Exercise: Number of Repetitions",
+            "format": "int32",
+            "example": 15
+          },
+          "time": {
+            "type": "integer",
+            "description": "Exercise: estimate execution time",
+            "format": "int32"
+          },
+          "date": {
+            "type": "string",
+            "description": "Exercise: Starting date of execution",
+            "format": "date-time"
+          },
+          "videoLink": {
+            "type": "string",
+            "description": "Exercise: Youtube link to show video of exercise execution",
+            "example": "5"
+          }
+        },
+        "description": "Schema to hold main exercise's data"
+      },
+
+
+
+      "Activity Dashboard Response Dto": {
+        "type": "object",
+        "properties": {
+          "executionTimePastWeak": {
+            "type": "integer",
+            "description": "Execution Time of activities for Past Weak",
+            "example": "50 minutes"
+          },
+          "executionTimeCurrentWeak": {
+            "type": "integer",
+            "description": "Execution Time of activities for Current Weak",
+            "example": "50 minutes"
+          },
+          "executionTimeDifferencePercentage": {
+            "type": "integer",
+            "description": "Difference in percentage of executed time of activities for Current and Past Weaks",
+            "example": "80% more"
+          },
+          "executedActivitiesPastMonth": {
+            "type": "integer",
+            "description": "Executed activities in Past Month",
+            "example": "10"
+          },
+          "executedActivitiesCurrentMonth": {
+            "type": "integer",
+            "description": "Executed activities in Past Month",
+            "example": "20"
+          },
+          "executedActivitiesDifferencePercentage": {
+            "type": "integer",
+            "description": "Difference in percentage of executed activities for Current and Past Weaks",
+            "example": "50% more"
+          }
+        },
+        "description": "Schema to hold main  analytics data"
+      },
+
+      "Log In Request Dto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "Holding email of user",
+            "example": "23123091@gmail.com"
+          },
+          "password": {
+            "type": "string",
+            "description": "Holding password of user",
+            "example": "werfs3rwf"
+          }
+        },
+        "description": "Schema to hold log in user's data"
+      },
+
+      "Registration Request Dto": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "description": "Holding user's first name",
+            "example": "Misha"
+          },
+          "lastName": {
+            "type": "string",
+            "description": "Holding user's last name",
+            "example": "Rudyk"
+          },
+          "email": {
+            "type": "string",
+            "description": "Holding email of user",
+            "example": "23123091@gmail.com"
+          },
+          "password": {
+            "type": "string",
+            "description": "Holding password of user",
+            "example": "werfs3rwf"
+          },
+          "age": {
+            "type": "integer",
+            "description": "Holding user's age",
+            "example": "21"
+          },
+          "gender": {
+            "type": "integer",
+            "description": "Holding user's gender",
+            "example": "male, female"
+          }
+        },
+        "description": "Schema to hold user's registration data"
+      },
+
+
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "apiPath": {
+            "type": "string",
+            "description": "API path invoked by client"
+          },
+          "errorCode": {
+            "type": "string",
+            "description": "Error code representing the error happened",
+            "enum": [
+              "100 CONTINUE",
+              "101 SWITCHING_PROTOCOLS",
+              "102 PROCESSING",
+              "103 EARLY_HINTS",
+              "103 CHECKPOINT",
+              "200 OK",
+              "201 CREATED",
+              "202 ACCEPTED",
+              "203 NON_AUTHORITATIVE_INFORMATION",
+              "204 NO_CONTENT",
+              "205 RESET_CONTENT",
+              "206 PARTIAL_CONTENT",
+              "207 MULTI_STATUS",
+              "208 ALREADY_REPORTED",
+              "226 IM_USED",
+              "300 MULTIPLE_CHOICES",
+              "301 MOVED_PERMANENTLY",
+              "302 FOUND",
+              "302 MOVED_TEMPORARILY",
+              "303 SEE_OTHER",
+              "304 NOT_MODIFIED",
+              "305 USE_PROXY",
+              "307 TEMPORARY_REDIRECT",
+              "308 PERMANENT_REDIRECT",
+              "400 BAD_REQUEST",
+              "401 UNAUTHORIZED",
+              "402 PAYMENT_REQUIRED",
+              "403 FORBIDDEN",
+              "404 NOT_FOUND",
+              "405 METHOD_NOT_ALLOWED",
+              "406 NOT_ACCEPTABLE",
+              "407 PROXY_AUTHENTICATION_REQUIRED",
+              "408 REQUEST_TIMEOUT",
+              "409 CONFLICT",
+              "410 GONE",
+              "411 LENGTH_REQUIRED",
+              "412 PRECONDITION_FAILED",
+              "413 PAYLOAD_TOO_LARGE",
+              "413 REQUEST_ENTITY_TOO_LARGE",
+              "414 URI_TOO_LONG",
+              "414 REQUEST_URI_TOO_LONG",
+              "415 UNSUPPORTED_MEDIA_TYPE",
+              "416 REQUESTED_RANGE_NOT_SATISFIABLE",
+              "417 EXPECTATION_FAILED",
+              "418 I_AM_A_TEAPOT",
+              "419 INSUFFICIENT_SPACE_ON_RESOURCE",
+              "420 METHOD_FAILURE",
+              "421 DESTINATION_LOCKED",
+              "422 UNPROCESSABLE_ENTITY",
+              "423 LOCKED",
+              "424 FAILED_DEPENDENCY",
+              "425 TOO_EARLY",
+              "426 UPGRADE_REQUIRED",
+              "428 PRECONDITION_REQUIRED",
+              "429 TOO_MANY_REQUESTS",
+              "431 REQUEST_HEADER_FIELDS_TOO_LARGE",
+              "451 UNAVAILABLE_FOR_LEGAL_REASONS",
+              "500 INTERNAL_SERVER_ERROR",
+              "501 NOT_IMPLEMENTED",
+              "502 BAD_GATEWAY",
+              "503 SERVICE_UNAVAILABLE",
+              "504 GATEWAY_TIMEOUT",
+              "505 HTTP_VERSION_NOT_SUPPORTED",
+              "506 VARIANT_ALSO_NEGOTIATES",
+              "507 INSUFFICIENT_STORAGE",
+              "508 LOOP_DETECTED",
+              "509 BANDWIDTH_LIMIT_EXCEEDED",
+              "510 NOT_EXTENDED",
+              "511 NETWORK_AUTHENTICATION_REQUIRED"
+            ]
+          },
+          "errorMessage": {
+            "type": "string",
+            "description": "Error message representing the error happened"
+          },
+          "errorTime": {
+            "type": "string",
+            "description": "Time representing when the error happened",
+            "format": "date-time"
+          }
+        },
+        "description": "Schema to hold error response information"
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script th:fragment="main-script">
+
+        function sendExerciseData(){
+            // alert(JSON.stringify(exerciseData.exercisesJsonData));
+
+            var programId = [[${programId}]]
+
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST","http://localhost:8080/api/construct/enrich/" + programId);
+            xhr.setRequestHeader('content-type', 'application/json');
+            xhr.send(JSON.stringify(exerciseData.exercisesJsonData))
+            xhr.onload = function(){
+                window.location.replace("http://localhost:8080" + xhr.response);
+            }
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

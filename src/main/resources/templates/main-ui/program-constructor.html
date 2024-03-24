@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Constructor | FitSynergy</title>
+  <link rel="shortcut icon" type="image/png" th:href="@{/main-assets/images/logos/favicon.png}" />
+  <link rel="stylesheet" th:href="@{/main-assets/css/styles.min.css}" />
+  <script th:replace="~{main-ui/fragments/constructor_script :: main-script}"></script>
+</head>
+
+<body>
+  <!--  Body Wrapper -->
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+
+    <!-- Sidebar Start -->
+    <aside th:insert="~{main-ui/fragments/nav :: aside}"></aside>
+    <!--  Sidebar End -->
+
+    <!--  Main wrapper -->
+    <div class="body-wrapper">
+      <!--  Header Start -->
+      <header th:insert="~{main-ui/fragments/user-icon-menu :: header}"></header>
+      <!--  Header End -->
+      <div class="container-fluid">
+        <div class="container-fluid">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title fw-semibold mb-4">Конструктор</h5>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title fw-semibold mb-4">Список вправ</h5>
+                  <div class="table-responsive">
+                    <table id="exercisesTable" class="table text-nowrap mb-0 align-middle">
+                      <thead class="text-dark fs-4">
+                      <tr>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">№</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Вправа</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Підходів</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Повторень</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Час виконання</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Початок</h6>
+                        </th>
+                      </tr>
+                      </thead>
+                      <tbody>
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title fw-semibold mb-4">Додати вправу</h5>
+                  <form onsubmit="event.preventDefault(); addExercise();">
+                    <div class="mb-3">
+                      <label for="inputExerciseName" class="form-label">Вправа</label>
+                      <input type="text" class="form-control" id="inputExerciseName" aria-describedby="emailHelp">
+                      <div id="emailHelp" class="form-text">Введіть назву вправи.</div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="inputSets" class="form-label">Підходів</label>
+                      <input type="text" class="form-control" id="inputSets" aria-describedby="setsHelp">
+                      <div id="setHelp" class="form-text">Введіть кількість підходів.</div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="inputReps" class="form-label">Повторень</label>
+                      <input type="text" class="form-control" id="inputReps" aria-describedby="repsHelp">
+                      <div id="repsHelp" class="form-text">Введіть кількість повторень.</div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="inputTime" class="form-label">Час виконання (хв.)</label>
+                      <input type="text" class="form-control" id="inputTime" aria-describedby="timeHelp">
+                      <div id="timeHelp" class="form-text">Введіть час виконання.</div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="inputDate" class="form-label">Призначена дата</label>
+                      <input type="date" class="form-control" id="inputDate" aria-describedby="dateHelp">
+                      <div id="dateHelp" class="form-text">Введіть дату початку.</div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="inputVideoLink" class="form-label">Посилання на відео з виконанням (не обов'язково)</label>
+                      <input type="text" class="form-control" id="inputVideoLink" aria-describedby="videoLinkHelp">
+                      <div id="videoLinkHelp" class="form-text">Вставте лише код відео з Youtube (напр. 'vcBig73ojpE').</div>
+                    </div>
+
+                    <div class="mb-3 form-check">
+                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Додати вправу</button>
+                  </form>
+                </div>
+              </div>
+              <div class="card mt-4">
+                <div class="card-body text-center">
+                  <button type="button" class="btn btn-success m-1" onclick="sendExerciseData();">Створити програму</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script th:src="@{/main-assets/libs/jquery/dist/jquery.min.js}"></script>
+  <script th:src="@{/main-assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js}"></script>
+  <script th:src="@{/main-assets/js/sidebarmenu.js}"></script>
+  <script th:src="@{/main-assets/js/app.min.js}"></script>
+  <script th:src="@{/main-assets/js/constructor.js}"></script>
+  <script th:src="@{/main-assets/libs/simplebar/dist/simplebar.js}"></script>
+</body>
+
+</html>

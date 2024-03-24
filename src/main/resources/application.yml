@@ -1,0 +1,30 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/fitsynergydb
+    username: mike
+    password: password
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+        hbm2ddl:
+          auto: none
+    show-sql: true
+  flyway:
+    user: mike
+    password: password
+    baseline-on-migrate: true
+
+logging:
+  level:
+    org:
+      hibernate:
+        orm:
+          jdbc:
+            bind: trace
+
+springdoc:
+  paths-to-match: /api/**

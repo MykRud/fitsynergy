@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Constructor | FitSynergy</title>
+  <link rel="shortcut icon" type="image/png" th:href="@{/main-assets/images/logos/favicon.png}" />
+  <link rel="stylesheet" th:href="@{/main-assets/css/styles.min.css}" />
+</head>
+
+<body>
+  <!--  Body Wrapper -->
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+
+    <!-- Sidebar Start -->
+    <aside th:insert="~{main-ui/fragments/nav :: aside}"></aside>
+    <!--  Sidebar End -->
+
+    <!--  Main wrapper -->
+    <div class="body-wrapper">
+      <!--  Header Start -->
+      <header th:insert="~{main-ui/fragments/user-icon-menu :: header}"></header>
+      <!--  Header End -->
+      <div class="container-fluid">
+        <div class="container-fluid">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title fw-semibold mb-4">Конструктор</h5>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title fw-semibold mb-4">Заповніть дані про програму</h5>
+                  <form action="#" th:action="@{/api/construct}" th:object="${constructorRequest}" method="POST">
+                    <div class="mb-3">
+                      <label for="inputProgramName" class="form-label">Назва програми</label>
+                      <input type="text" th:field="*{programName}" class="form-control" id="inputProgramName" aria-describedby="programHelp">
+                      <div id="programHelp" class="form-text">Введіть назву програми.</div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="occupationSelect" class="form-label">Оберіть тип</label>
+                      <select name="occupationSelect" id="occupationSelect" class="form-select" th:field="*{occupationId}">
+                        <option th:each="occup : ${occupations}" th:value="${occup.id}" th:text="${occup.name}" />
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="levelSelect" class="form-label">Оберіть рівень програми</label>
+                      <select name="levelSelect" th:field="*{level}" id="levelSelect">
+                        <option th:value="FIRST_LEVEL">Легко</option>
+                        <option th:value="SECOND_LEVEL">Вище легкого</option>
+                        <option th:value="THIRD_LEVEL">Середній</option>
+                        <option th:value="FOURTH_LEVEL">Вище Середнього</option>
+                        <option th:value="FIFTH_LEVEL">Важко</option>
+                      </select>
+                    </div>
+                    <div class="mb-3 form-check">
+                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Створити програму</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script th:src="@{/main-assets/libs/jquery/dist/jquery.min.js}"></script>
+  <script th:src="@{/main-assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js}"></script>
+  <script th:src="@{/main-assets/js/sidebarmenu.js}"></script>
+  <script th:src="@{/main-assets/js/app.min.js}"></script>
+  <script th:src="@{/main-assets/js/constructor.js}"></script>
+  <script th:src="@{/main-assets/libs/simplebar/dist/simplebar.js}"></script>
+</body>
+
+</html>

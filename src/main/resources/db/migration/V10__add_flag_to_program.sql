@@ -1,0 +1,1 @@
+alter table program add column "is_taken" bool default false;

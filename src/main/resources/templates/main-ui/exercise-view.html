@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exercise | FitSynergy</title>
+  <link rel="shortcut icon" type="image/png" th:href="@{/main-assets/images/logos/favicon.png}" />
+  <link rel="stylesheet" th:href="@{/main-assets/css/styles.min.css}" />
+  <script th:replace="~{main-ui/fragments/timer_script :: main-script}"></script>
+</head>
+
+<body>
+  <!--  Body Wrapper -->
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+
+    <!-- Sidebar Start -->
+    <aside th:insert="~{main-ui/fragments/nav :: aside}"></aside>
+    <!--  Sidebar End -->
+
+    <!--  Main wrapper -->
+    <div class="body-wrapper">
+      <!--  Header Start -->
+      <header th:insert="~{main-ui/fragments/user-icon-menu :: header}"></header>
+      <!--  Header End -->
+      <div class="container-fluid">
+        <div class="container-fluid">
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="card">
+                    <th:block th:if="${#strings.isEmpty(exercise.exercise.videoLink)}">
+                      <iframe width="100%" height="390px"
+                              src="https://www.youtube.com/embed/ECma8mWbVw8?si=BvDxJ2KVEVsfZ8tp">
+                      </iframe>
+                    </th:block>
+                    <th:block th:if="${not #strings.isEmpty(exercise.exercise.videoLink)}">
+                      <iframe width="100%" height="390px" th:src="@{https://www.youtube.com/embed/{videoLink}(videoLink = ${exercise.exercise.videoLink})}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<!--                      <iframe width="100%" height="390px"-->
+<!--                            th:src="@{{videoLink}(videoLink=${exercise.exercise.videoLink})}">-->
+<!--                      </iframe>-->
+                    </th:block>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card">
+                    <div class="card-body">
+                      <h3 th:text="${exercise.exercise.name}"></h3>
+                      <p class="card-text mt-4">
+                        <strong class="text-primary"><span class="card-text" th:text="${exercise.sets} + ' підходи(ів)'"></span></strong>
+                      </p>
+                      <p class="card-text mt-4">
+                        <strong class="text-primary"><span class="card-text" th:text="${exercise.reps} + ' повтори(ів)'"></span></strong>
+                      </p>
+                      <p class="card-text mt-4" th:if="${not exercise.completed}">
+                        <strong class="text-primary">Час виконання: </strong><span class="card-text" th:text="${exercise.executionTime} + ' хвилин(и)'"></span>
+                      </p>
+                      <p class="card-text mt-4">
+                        <strong class="text-primary">Початок виконання: </strong><span class="card-text" th:text="${exercise.startDate}"></span>
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="mt-6 card">
+                    <div class="card-body text-center">
+                    <h5 class="card-title text-success-emphasis mt-2" th:if="${exercise.completed}">
+                      Виконано! Час: <span class="card-text" th:text="${@thymeleafMath.floor(exercise.executionTime)} + ' хвилин(и)'"></span>
+                    </h5>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="col-md-4 mx-auto">
+                  <div class="card">
+                    <div class="card-body" th:if="${not exercise.completed}">
+                      <div class="mt-6">
+                        <div class="text-center" id="start-div">
+                          <button type="button" onclick="initTimer()" class="btn btn-dark m-1">Почати виконання</button>
+                        </div>
+                      </div>
+                      <div class="mt-6" id="timer-div" style="display: none; visibility: hidden">
+                        <div class="text-center">
+                          <h1 id="timer"></h1>
+                          <button type="button" onclick="startRecording()" class="btn btn-success m-1 mt-2"><i class="ti ti-player-play fs-4"></i></button>
+                          <button type="button" onclick="stopRecording()" class="btn btn-danger m-1 mt-2"><i class="ti ti-player-pause fs-4"></i></button>
+                          <br />
+                          <button type="button" onclick="endRecording()" class="btn btn-dark m-1 mt-2">Завершити</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script th:src="@{/main-assets/libs/jquery/dist/jquery.min.js}"></script>
+  <script th:src="@{/main-assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js}"></script>
+  <script th:src="@{/main-assets/js/sidebarmenu.js}"></script>
+  <script th:src="@{/main-assets/js/exercise-timer.js}"></script>
+  <script th:src="@{/main-assets/js/app.min.js}"></script>
+  <script th:src="@{/main-assets/libs/simplebar/dist/simplebar.js}"></script>
+</body>
+
+</html>

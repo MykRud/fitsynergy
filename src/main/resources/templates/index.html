@@ -1,0 +1,373 @@
+<!doctype html>
+<html class="no.js}" lang="zxx" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title> FitSynergy </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/assets/img/favicon.ico}">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" th:href="@{/assets/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/owl.carousel.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/slicknav.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/flaticon.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/gijgo.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/animate.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/animated-headline.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/magnific-popup.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/fontawesome-all.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/themify-icons.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/slick.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/nice-select.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/style.css}">
+
+</head>
+<body>
+    <!-- ? Preloader Start -->
+    <div th:insert="~{fragments/interface-elements :: #preloader-active}"></div>
+    <!-- Preloader Start -->
+
+    <!--? Header Start -->
+    <header th:insert="~{fragments/header :: header}"></header>
+    <!-- Header End -->
+
+    <main>
+        <!--? slider Area Start-->
+        <div class="slider-area position-relative">
+            <div class="slider-active">
+                <!-- Single Slider -->
+                <div class="single-slider slider-height d-flex align-items-center">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-7 col-lg-9 col-md-8 col-sm-9">
+                                <div class="hero__caption">
+                                    <span data-animation="fadeInLeft" data-delay="0.1s">наша команда</span>
+                                    <h1 data-animation="fadeInLeft" data-delay="0.4s">створи ідеальну форму для гарного та здорового життя.</h1>
+                                    <a th:href="@{/api/sign-up}"  class="btn hero-btn" data-animation="fadeInLeft" data-delay="0.8s">стань підписником</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>          
+                </div>
+                <!-- Single Slider -->
+                <div class="single-slider slider-height d-flex align-items-center">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-7 col-lg-9 col-md-8 col-sm-9">
+                                <div class="hero__caption">
+                                    <span data-animation="fadeInLeft" data-delay="0.1s">досвідчені тренери</span>
+                                    <h1 data-animation="fadeInLeft" data-delay="0.4s">почни свій шлях до кращої версії себе вже зараз!</h1>
+                                    <a th:href="@{/api/sign-up}" class="btn hero-btn" data-animation="fadeInLeft" data-delay="0.8s">стань підписником</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>          
+                </div>
+            </div>
+        </div>
+        <!-- slider Area End-->
+        <!--? About Area Start -->
+        <section class="about-area section-padding30">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-12">
+                        <!-- about-img -->
+                        <div class="about-img ">
+                            <img th:src="@{/assets/img/gallery/about.png}" alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                        <div class="about-caption">
+                            <!-- Section Tittle -->
+                            <div class="section-tittle section-tittle3 mb-35">
+                                <span>FITSYNERGY</span>
+                                <h2>Правильні рішення для безпечного формування тіла, які економлять наш дорогоцінний час!</h2>
+                            </div>
+                            <p class="pera-top">FIT SYNERGY пропонує вам послуги з гнучкими, зручними і ефективним конструктором складання фітнес-програм. Ви можете вибрати свої цілі, обрати бажані елементи та інвентар для складання програми з необмеженими можливостями налаштування. Передбачена зручна робота з тренерами.</p>
+                            <p class="pera-top">Такод FIT SYNERGY дозволяє формувати власне дієту, надає поради, пристосовується до харчових цілей та багато іншого. Оберіть свою програму та почність роботу!</p>
+                            <a th:href="@{/api/sign-up}" class="btn">стати підписником</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About-2 Area End -->
+        <!--? Services Area Start -->
+        <section class="services-area pt-100 pb-150 section-bg" data-background="assets/img/gallery/section_bg01.png">
+            <!--? Want To work -->
+            <section class="wantToWork-area w-padding">
+                <div class="container">
+                    <div class="row align-items-end justify-content-between">
+                        <div class="col-lg-6 col-md-10 col-sm-10">
+                            <div class="section-tittle section-tittle2">
+                                <span>НАШІ ПОСЛУГИ ДЛЯ ВАС</span>
+                                <h2>РОЗШИРУЙТЕ МЕЖІ. Ми пропонуємо вам</h2>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-3">
+                            <a th:href="@{/api/programs}" class="btn wantToWork-btn f-right">Більше програм</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Want To work End -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-6">
+                        <div class="single-cat text-center mb-50">
+                            <div class="cat-icon">
+                                <i class="flaticon-fitness"></i>
+                            </div>
+                            <div class="cat-cap">
+                                <h5><a th:href="@{/api/programs}">СИЛОВА ПРОГРАМА</a></h5>
+                                <p>Дозволить підвищи силові показники, досягти омріяної форми за допомогою елементів калістеніки.</p>
+                            </div>
+                            <div class="img-cap">
+                                <a th:href="@{/api/programs}" class="">Дізнатися більше <i class="ti-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6">
+                        <div class="single-cat text-center mb-50">
+                            <div class="cat-icon">
+                                <i class="flaticon-healthcare-and-medical"></i>
+                            </div>
+                            <div class="cat-cap">
+                                <h5><a th:href="@{/api/programs}">ГІМНАСТИЧНА ПРОГРАМА</a></h5>
+                                <p>Гімнастика - це втілення грації та сили. Наша програма розкриє безмежні можливості тіла."</p>
+                            </div>
+                            <div class="img-cap">
+                                <a th:href="@{/api/programs}" class="">Дізнатися більше <i class="ti-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6">
+                        <div class="single-cat text-center mb-50">
+                            <div class="cat-icon">
+                                <i class="flaticon-clock"></i>
+                            </div>
+                            <div class="cat-cap">
+                                <h5><a th:href="@{/api/programs}">КАРДІО ПРОГРАМА</a></h5>
+                                <p>Це не лише тренування для тіла. Це програма, де сила витривалості зустрічається з естетикою рухів.</p>
+                            </div>
+                            <div class="img-cap">
+                                <a th:href="@{/api/programs}" class="">Дізнатися більше <i class="ti-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Services Area End -->
+        <!--? Want To work -->
+        <section class="wantToWork-area w-padding">
+            <div class="container">
+                <div class="row align-items-end justify-content-between">
+                    <div class="col-lg-6 col-md-9 col-sm-9">
+                        <div class="section-tittle">
+                            <span>РОБОТА З ТРЕНЕРОМ</span>
+                            <h2>Наші досвідчені тренери</h2>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-2 col-md-3">
+                        <a th:href="@{/api/dashboard/}" class="btn wantToWork-btn f-right">ДЕТАЛЬНІШЕ</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Want To work End -->
+        <!--? Team Ara Start -->
+        <div class="team-area pb-150">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="single-team mb-30">
+                            <div class="team-img">
+                                <img th:src="@{/assets/img/gallery/team1.png}" alt="">
+                                <div class="team-caption">
+                                    <span>Тренер з гімнастики</span>
+                                    <h3><a href="#">Ружицький Олексій</a></h3>
+                                    <!-- Blog Social -->
+                                    <div class="team-social">
+                                        <ul>
+                                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fas fa-globe"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="single-team mb-30">
+                            <div class="team-img">
+                                <img th:src="@{/assets/img/gallery/team2.png}" alt="">
+                                <div class="team-caption">
+                                    <span>Тренер йоги</span>
+                                    <h3><a href="#">Андрунців Ярина</a></h3>
+                                    <!-- Blog Social -->
+                                    <div class="team-social">
+                                        <ul>
+                                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fas fa-globe"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="single-team mb-30">
+                            <div class="team-img">
+                                <img th:src="@{/assets/img/gallery/team3.png}" alt="">
+                                <div class="team-caption">
+                                    <span>Тренер силових дисциплін</span>
+                                    <h3><a href="#">Шимків Єгор</a></h3>
+                                    <!-- Blog Social -->
+                                    <div class="team-social">
+                                        <ul>
+                                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fas fa-globe"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Team Ara End -->
+        <!--? Gallery Area Start -->
+        <div class="gallery-area">
+            <div class="container-fluid p-0 fix">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="box snake mb-30">
+                            <div class="gallery-img big-img" th:style="'background-image: url(' + @{/assets/img/gallery/gallery4.png} + ');'"></div>
+                            <div class="overlay">
+                                <div class="overlay-content">
+                                    <a href="#"><i class="ti-arrow-top-right"></i></a>
+                                    <h3>Дивитись фітнес-галерею</h3>
+                                    <p>Клієнт, фітнес</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="box snake mb-30">
+                                    <div class="gallery-img small-img" th:style="'background-image: url(' + @{/assets/img/gallery/75126749.png} + ');'"></div>
+                                    <div class="overlay">
+                                        <div class="overlay-content">
+                                            <a href="#"><i class="ti-arrow-top-right"></i></a>
+                                            <h3>Дивитись фітнес-галерею</h3>
+                                            <p>Клієнт, фітнес</p>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="box snake mb-30">
+                                    <div class="gallery-img small-img" th:style="'background-image: url(' + @{/assets/img/gallery/gallery3.png} + ');'"></div>
+                                    <div class="overlay">
+                                        <div class="overlay-content">
+                                            <a href="#"><i class="ti-arrow-top-right"></i></a>
+                                            <h3>Дивитись фітнес-галерею</h3>
+                                            <p>Клієнт, фітнес</p>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="box snake mb-30">
+                                    <div class="gallery-img small-img" th:style="'background-image: url(' + @{/assets/img/gallery/gallery2.png} + ');'"></div>
+                                    <div class="overlay">
+                                        <div class="overlay-content">
+                                            <a href="#"><i class="ti-arrow-top-right"></i></a>
+                                            <h3>Дивитись фітнес-галерею</h3>
+                                            <p>Клієнт, фітнес</p>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="box snake mb-30">
+                                    <div class="gallery-img small-img" th:style="'background-image: url(' + @{/assets/img/gallery/gallery5.png} + ');'"></div>
+                                    <div class="overlay">
+                                        <div class="overlay-content">
+                                            <a href="#"><i class="ti-arrow-top-right"></i></a>
+                                            <h3>Дивитись фітнес-галерею</h3>
+                                            <p>Клієнт, фітнес</p>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Gallery Area End -->
+
+    </main>
+
+    <!--? Footer Start-->
+    <footer th:insert="~{fragments/footer :: footer}"></footer>
+    <!-- Footer End-->
+
+    <!-- Scroll Up -->
+    <div th:insert="~{fragments/interface-elements :: #back-top}"></div>
+
+    <!-- JS here -->
+
+    <script th:src="@{/assets/js/vendor/modernizr-3.5.0.min.js}"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script th:src="@{/assets/js/vendor/jquery-1.12.4.min.js}"></script>
+    <script th:src="@{/assets/js/popper.min.js}"></script>
+    <script th:src="@{/assets/js/bootstrap.min.js}"></script>
+    <!-- Jquery Mobile Menu -->
+    <script th:src="@{/assets/js/jquery.slicknav.min.js}"></script>
+
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script th:src="@{/assets/js/owl.carousel.min.js}"></script>
+    <script th:src="@{/assets/js/slick.min.js}"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script th:src="@{/assets/js/wow.min.js}"></script>
+    <script th:src="@{/assets/js/animated.headline.js}"></script>
+    <script th:src="@{/assets/js/jquery.magnific-popup.js}"></script>
+
+    <!-- Date Picker -->
+    <script th:src="@{/assets/js/gijgo.min.js}"></script>
+    <!-- Nice-select, sticky -->
+    <script th:src="@{/assets/js/jquery.nice-select.min.js}"></script>
+    <script th:src="@{/assets/js/jquery.sticky.js}"></script>
+
+    <!-- counter , waypoint,Hover Direction -->
+    <script th:src="@{/assets/js/jquery.counterup.min.js}"></script>
+    <script th:src="@{/assets/js/waypoints.min.js}"></script>
+    <script th:src="@{/assets/js/jquery.countdown.min.js}"></script>
+    <script th:src="@{/assets/js/hover-direction-snake.min.js}"></script>
+
+    <!-- contact js -->
+    <script th:src="@{/assets/js/contact.js}"></script>
+    <script th:src="@{/assets/js/jquery.form.js}"></script>
+    <script th:src="@{/assets/js/jquery.validate.min.js}"></script>
+    <script th:src="@{/assets/js/mail-script.js}"></script>
+    <script th:src="@{/assets/js/jquery.ajaxchimp.min.js}"></script>
+
+    <!-- Jquery Plugins, main Jquery -->
+    <script th:src="@{/assets/js/plugins.js}"></script>
+    <script th:src="@{/assets/js/main.js}"></script>
+
+    </body>
+</html>

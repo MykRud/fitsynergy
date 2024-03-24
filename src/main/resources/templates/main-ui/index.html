@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard | FitSynergy</title>
+  <link rel="shortcut icon" type="image/png" th:href="@{/main-assets/images/logos/favicon.png}" />
+  <link rel="stylesheet" th:href="@{/main-assets/css/styles.min.css}" />
+  <script th:src="@{/main-assets/libs/jquery/dist/jquery.min.js}"></script>
+  <script th:src="@{/main-assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js}"></script>
+  <script th:src="@{/main-assets/js/sidebarmenu.js}"></script>
+  <script th:src="@{/main-assets/js/app.min.js}"></script>
+  <script th:src="@{/main-assets/libs/apexcharts/dist/apexcharts.min.js}"></script>
+  <script th:src="@{/main-assets/libs/simplebar/dist/simplebar.js}"></script>
+
+  <script th:inline="javascript">
+    var days = [[${daysStats_days}]];
+  </script>
+  <script th:replace="~{main-ui/fragments/activity_script :: main-script}"></script>
+</head>
+
+<body>
+  <!--  Body Wrapper -->
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+
+    <!-- Sidebar Start -->
+    <aside th:insert="~{main-ui/fragments/nav :: aside}"></aside>
+    <!--  Sidebar End -->
+
+    <!--  Main wrapper -->
+    <div class="body-wrapper">
+      <!--  Header Start -->
+
+      <header th:insert="~{main-ui/fragments/user-icon-menu :: header}"></header>
+
+      <!--  Header End -->
+      <div class="container-fluid">
+        <!--  Row 1 -->
+        <div class="row">
+          <div class="col-lg-8 d-flex align-items-strech">
+            <div class="card w-100">
+              <div class="card-body">
+                <div class="d-sm-flex d-block align-items-center justify-content-between mb-9">
+                  <div class="mb-3 mb-sm-0">
+                    <h5 class="card-title fw-semibold">Трекер активності</h5>
+                  </div>
+                  <div>
+                    <select class="form-select">
+                      <option value="1">Березень 2024</option>
+                      <option value="2">Лютий 2024</option>
+                      <option value="3">Січень 2024</option>
+                      <option value="4">Грудень 2023</option>
+                    </select>
+                  </div>
+                </div>
+                <div id="chart"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="row">
+              <div class="col-lg-12">
+                <!-- Yearly Breakup -->
+                <div class="card overflow-hidden">
+                  <div class="card-body p-4">
+                    <h5 class="card-title mb-9 fw-semibold">Виконаних тренувань</h5>
+                    <div class="row align-items-center">
+                      <div class="col-8">
+                        <h4 class="fw-semibold mb-3" th:text="${executedActivities_currentMonth} + ' тренувань'"></h4>
+                        <div class="d-flex align-items-center mb-3">
+                          <span th:if="${executedActivities_differencePercentage >= 0}"
+                            class="me-1 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
+                            <i class="ti ti-arrow-up-left text-success"></i>
+                          </span>
+                          <span th:if="${executedActivities_differencePercentage < 0}"
+                                class="me-2 rounded-circle bg-light-danger round-20 d-flex align-items-center justify-content-center">
+                            <i class="ti ti-arrow-down-right text-danger"></i>
+                          </span>
+                          <p class="text-dark me-1 fs-3 mb-0" th:text="${executedActivities_differencePercentage + '%'}"></p>
+                          <p class="fs-3 mb-0">цього місяця</p>
+                        </div>
+                        <div class="d-flex align-items-center">
+                          <div class="me-4">
+                            <span class="round-8 bg-primary rounded-circle me-2 d-inline-block"></span>
+                            <span class="fs-2">березень</span>
+                          </div>
+                          <div>
+                            <span class="round-8 bg-light-primary rounded-circle me-2 d-inline-block"></span>
+                            <span class="fs-2">лютий</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-4">
+                        <div class="d-flex justify-content-center">
+                          <div id="breakup"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <!-- Monthly Earnings -->
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row alig n-items-start">
+                      <div class="col-8">
+                        <h5 class="card-title mb-9 fw-semibold"> Активність тижня </h5>
+                        <h4 class="fw-semibold mb-3" th:text="${executionTime_currentWeak} + ' хвилин'"></h4>
+                        <div class="d-flex align-items-center pb-1">
+                          <span th:if="${executionDifferencePercentage >= 0}"
+                                class="me-1 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
+                            <i class="ti ti-arrow-up-left text-success"></i>
+                          </span>
+                          <span th:if="${executionDifferencePercentage < 0}"
+                            class="me-2 rounded-circle bg-light-danger round-20 d-flex align-items-center justify-content-center">
+                            <i class="ti ti-arrow-down-right text-danger"></i>
+                          </span>
+                          <p class="text-dark me-1 fs-3 mb-0" th:text="${executionDifferencePercentage} + '%'"></p>
+                          <p class="fs-3 mb-0">цього тижня</p>
+                        </div>
+                      </div>
+                      <div class="col-4">
+                        <div class="d-flex justify-content-end">
+                          <div
+                            class="text-white bg-secondary rounded-circle p-6 d-flex align-items-center justify-content-center">
+                            <i class="ti ti-activity fs-6"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="earning"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 d-flex align-items-stretch">
+            <div class="card w-100">
+              <div class="card-body p-4">
+                <div class="mb-4">
+                  <h5 class="card-title fw-semibold">Найближчі Тренування</h5>
+                </div>
+                <ul class="timeline-widget mb-0 position-relative mb-n5">
+                  <li th:each="incomingExercise,iter : ${incomingExercises}"
+                      class="timeline-item d-flex position-relative overflow-hidden">
+                    <div class="timeline-time text-dark flex-shrink-0 text-end">
+                      <span th:text="${incomingExercise.getStartDate().toString()}"> </span>
+                    </div>
+                    <div class="timeline-badge-wrap d-flex flex-column align-items-center">
+                      <span class="timeline-badge border-2 border border-success flex-shrink-0 my-8"></span>
+                      <span th:if="${not iter.last}" class="timeline-badge-border d-block flex-shrink-0"></span>
+                    </div>
+                    <div class="timeline-desc fs-3 text-dark">
+                      <p th:text="${incomingExercise.getExercise().getName()}"></p>
+                      <a class="text-primary d-block fw-normal" th:href="@{/api/program-client/exercises/{id}(id=${incomingExercise.getId()})}">
+                        Деталі
+                      </a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8 d-flex align-items-stretch">
+            <div class="card w-100">
+              <div class="card-body p-4">
+                <h5 class="card-title fw-semibold mb-4">Активні програми</h5>
+                <div class="table-responsive">
+                  <table class="table text-nowrap mb-0 align-middle">
+                    <thead class="text-dark fs-4">
+                      <tr>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Id</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Програма</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Вид</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Рівень</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Залишилось вправ</h6>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr th:each="activeProgram,iter : ${activePrograms}">
+                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0" th:text="${iter.index + 1}"></h6></td>
+                        <td class="border-bottom-0">
+                            <a th:href="@{/api/program-client/{id}(id=${activeProgram.getId()})}">
+                              <h6 class="fw-semibold mb-1" th:text="${activeProgram.getName()}"></h6>
+                            </a>
+                        </td>
+                        <td class="border-bottom-0">
+                          <p class="mb-0 fw-normal" th:text="${activeProgram.getOccupation().getName()}"></p>
+                        </td>
+                        <td class="border-bottom-0">
+                          <div class="d-flex align-items-center gap-2">
+                            <span class="badge bg-primary rounded-3 fw-semibold" th:text="${activeProgram.getLevel().name()}"></span>
+                          </div>
+                        </td>
+                        <td class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0 fs-4" th:text="${activeProgram.getExercises().size()}"></h6>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <h5 class="card-title fw-semibold mb-3">Популярні програми</h5>
+          <div class="col-sm-6 col-xl-3" th:each="program : ${popularPrograms}">
+            <div class="card overflow-hidden rounded-2">
+              <div class="card-body pt-3 p-4">
+                <a th:href="@{/api/programs/{programId}(programId=${program.id})}">  <h6 class="fw-semibold fs-4" th:text="${program.name}"></h6></a>
+                <div class="d-flex align-items-center justify-content-between">
+                  <h6 class="fs-4 mb-0"><span th:text="${program.occupation.name}"></span></h6>
+                  <ul class="list-unstyled d-flex align-items-center mb-0">
+                    <li><a class="me-1" href="javascript:void(0)"><i class="ti ti-star text-warning"></i></a></li>
+                    <li><a class="me-1" href="javascript:void(0)"><i class="ti ti-star text-warning"></i></a></li>
+                    <li><a class="me-1" href="javascript:void(0)"><i class="ti ti-star text-warning"></i></a></li>
+                    <li><a class="me-1" href="javascript:void(0)"><i class="ti ti-star text-warning"></i></a></li>
+                    <li><a class="" href="javascript:void(0)"><i class="ti ti-star text-warning"></i></a></li>
+                  </ul>
+                </div>
+                <h6 class="fs-4 mt-3 text-primary"><span th:text="${program.exercises.size()} + ' вправ(и)'"></span></h6>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="py-6 px-6 text-center">
+          <p class="mb-0 fs-4">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+</body>
+
+</html>

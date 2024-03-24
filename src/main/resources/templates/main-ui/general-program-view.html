@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Programs | FitSynergy</title>
+    <link rel="shortcut icon" type="image/png" th:href="@{/main-assets/images/logos/favicon.png}" />
+    <link rel="stylesheet" th:href="@{/main-assets/css/styles.min.css}" />
+</head>
+
+<body>
+<!--  Body Wrapper -->
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+     data-sidebar-position="fixed" data-header-position="fixed">
+
+    <!-- Sidebar Start -->
+    <aside th:insert="~{main-ui/fragments/nav :: aside}"></aside>
+    <!--  Sidebar End -->
+
+    <!--  Main wrapper -->
+    <div class="body-wrapper">
+        <!--  Header Start -->
+        <header th:insert="~{main-ui/fragments/user-icon-menu :: header}"></header>
+        <!--  Header End -->
+        <div class="container-fluid">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title fw-semibold mb-4">Програми</h5>
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table id="exercisesTable" class="table text-nowrap mb-0 align-middle">
+                                        <thead class="text-dark fs-4">
+                                        <tr>
+                                            <th class="border-bottom-0">
+                                                <h6 class="fw-semibold mb-0">№</h6>
+                                            </th>
+                                            <th class="border-bottom-0">
+                                                <h6 class="fw-semibold mb-0">Програма</h6>
+                                            </th>
+                                            <th class="border-bottom-0">
+                                                <h6 class="fw-semibold mb-0">Тип</h6>
+                                            </th>
+                                            <th class="border-bottom-0">
+                                                <h6 class="fw-semibold mb-0">Складність</h6>
+                                            </th>
+                                            <th class="border-bottom-0">
+                                                <h6 class="fw-semibold mb-0">Кількість тренувань</h6>
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr th:each="program,iter : ${programs}">
+                                            <td class="border-bottom-0">
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <span class="badge bg-primary rounded-3 fw-semibold" th:text="${iter.index + 1}"></span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="border-bottom-0">
+                                                <a th:href="@{/api/programs/{programId}(programId=${program.id})}"><h6 class="fw-semibold mb-1" th:text="${program.name}"></h6></a>
+                                            </td>
+                                            <td class="border-bottom-0">
+                                                <h6 class="fw-semibold mb-1" th:text="${program.occupation.name}"></h6>
+                                            </td>
+                                            <td class="border-bottom-0">
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <span class="badge bg-success rounded-3 fw-semibold" th:if="${program.level.name()} == 'FIRST_LEVEL'">Легко</span>
+                                                        <span class="badge bg-success rounded-3 fw-semibold" th:if="${program.level.name()} == 'SECOND_LEVEL'">Вище легкого</span>
+                                                        <span class="badge bg-success rounded-3 fw-semibold" th:if="${program.level.name()} == 'THIRD_LEVEL'">Середній</span>
+                                                        <span class="badge bg-success rounded-3 fw-semibold" th:if="${program.level.name()} == 'FOURTH_LEVEL'">Вище Середнього</span>
+                                                        <span class="badge bg-success rounded-3 fw-semibold" th:if="${program.level.name()} == 'FIFTH_LEVEL'">Важко</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="border-bottom-0">
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <span class="badge bg-primary rounded-3 fw-semibold" th:text="${program.exercises.size()}"></span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="border-bottom-0">
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <a th:href="@{/api/programs/{programId}(programId=${program.id})}">Деталі</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script th:src="@{/main-assets/libs/jquery/dist/jquery.min.js}"></script>
+<script th:src="@{/main-assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/main-assets/js/sidebarmenu.js}"></script>
+<script th:src="@{/main-assets/js/app.min.js}"></script>
+<script th:src="@{/main-assets/js/constructor.js}"></script>
+<script th:src="@{/main-assets/libs/simplebar/dist/simplebar.js}"></script>
+</body>
+
+</html>

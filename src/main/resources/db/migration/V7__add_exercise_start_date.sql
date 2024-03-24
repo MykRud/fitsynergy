@@ -1,0 +1,1 @@
+alter table exercise_context add column "start_date" timestamp default NOW();

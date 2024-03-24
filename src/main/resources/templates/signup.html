@@ -1,0 +1,174 @@
+<!doctype html>
+<html class="no-js" lang="zxx" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title> Sign Up | FitSynergy </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" th:href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/assets/img/favicon.ico}">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" th:href="@{/assets/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/owl.carousel.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/slicknav.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/flaticon.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/gijgo.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/animate.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/animated-headline.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/magnific-popup.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/fontawesome-all.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/themify-icons.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/slick.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/nice-select.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/style.css}">
+</head>
+<body>
+
+<!-- ? Preloader Start -->
+<div th:insert="~{fragments/interface-elements :: #preloader-active}"></div>
+<!-- Preloader Start -->
+
+<header xmlns:th="http://www.thymeleaf.org">
+    <!--? Header Start -->
+    <div class="header-area header-transparent">
+        <div class="main-header header-sticky">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <!-- Logo -->
+                    <div class="col-xl-2 col-lg-2 col-md-1">
+                        <div class="logo">
+                            <a href="/"><img th:src="@{/assets/img/logo/logo.png}" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-xl-10 col-lg-10 col-md-10">
+                        <div class="menu-main d-flex align-items-center justify-content-end">
+                            <div class="header-right-btn f-right d-none d-lg-block ml-30">
+                                <a th:href="@{/api/users/log-in}" class="btn header-btn">Маєш акаунт?</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Mobile Menu -->
+                    <div class="col-12">
+                        <div class="mobile_menu d-block d-lg-none"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+</header>
+
+<main>
+    <!--? Contact form Start -->
+    <section class="contact-form-main section-padding30">
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="col-xl-7 col-lg-7">
+                    <div class="form-wrapper">
+                        <!--Section Tittle  -->
+                        <div class="form-tittle">
+                            <div class="row ">
+                                <div class="col-lg-11 col-md-10 col-sm-10">
+                                    <div class="section-tittle">
+                                        <span>Реєстрація</span>
+                                        <h2>Почни власний шлях до здоров'я та форми прямо зараз!</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--End Section Tittle  -->
+                        <form id="contact-form" action="#" th:action="@{/api/users/sign-up}" th:object="${user}" method="POST">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-box user-icon mb-30">
+                                        <input type="text" th:field="*{firstName}" name="firstName" placeholder="Ім'я">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-box email-icon mb-30">
+                                        <input type="text" th:field="*{lastName}" name="lastName" placeholder="Прізвище">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 mb-30">
+                                    <div class="select-itms">
+                                        <select name="select" th:field="*{gender}" id="select2">
+                                            <option th:value="male">Чоловік</option>
+                                            <option th:value="female">Жінка</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-box user-icon mb-30">
+                                        <input type="text" th:field="*{age}" name="age" placeholder="Вік">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-box subject-icon mb-30">
+                                        <input type="email" th:field="*{email}" name="email" placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-box user-icon mb-30">
+                                        <input type="password" th:field="*{password}" name="password" placeholder="Password">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="submit-info">
+                                        <button class="btn" type="submit">Зареєструватися</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact form End -->
+</main>
+
+<!-- JS here -->
+
+<script th:src="@{/assets/js/vendor/modernizr-3.5.0.min.js}"></script>
+<!-- Jquery, Popper, Bootstrap -->
+<script th:src="@{/assets/js/vendor/jquery-1.12.4.min.js}"></script>
+<script th:src="@{/assets/js/popper.min.js}"></script>
+<script th:src="@{/assets/js/bootstrap.min.js}"></script>
+<!-- Jquery Mobile Menu -->
+<script th:src="@{/assets/js/jquery.slicknav.min.js}"></script>
+
+<!-- Jquery Slick , Owl-Carousel Plugins -->
+<script th:src="@{/assets/js/owl.carousel.min.js}"></script>
+<script th:src="@{/assets/js/slick.min.js}"></script>
+<!-- One Page, Animated-HeadLin -->
+<script th:src="@{/assets/js/wow.min.js}"></script>
+<script th:src="@{/assets/js/animated.headline.js}"></script>
+<script th:src="@{/assets/js/jquery.magnific-popup.js}"></script>
+
+<!-- Date Picker -->
+<script th:src="@{/assets/js/gijgo.min.js}"></script>
+<!-- Nice-select, sticky -->
+<script th:src="@{/assets/js/jquery.nice-select.min.js}"></script>
+<script th:src="@{/assets/js/jquery.sticky.js}"></script>
+
+<!-- counter , waypoint,Hover Direction -->
+<script th:src="@{/assets/js/jquery.counterup.min.js}"></script>
+<script th:src="@{/assets/js/waypoints.min.js}"></script>
+<script th:src="@{/assets/js/jquery.countdown.min.js}"></script>
+<script th:src="@{/assets/js/hover-direction-snake.min.js}"></script>
+
+<!-- contact js -->
+<script th:src="@{/assets/js/contact.js}"></script>
+<script th:src="@{/assets/js/jquery.form.js}"></script>
+<script th:src="@{/assets/js/jquery.validate.min.js}"></script>
+<script th:src="@{/assets/js/mail-script.js}"></script>
+<script th:src="@{/assets/js/jquery.ajaxchimp.min.js}"></script>
+
+<!-- Jquery Plugins, main Jquery -->
+<script th:src="@{/assets/js/plugins.js}"></script>
+<script th:src="@{/assets/js/main.js}"></script>
+
+</body>
+</html>
