@@ -1,1 +1,1 @@
-FitSynergy application
+FitSynergy application with DevOps tools
