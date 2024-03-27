@@ -29,5 +29,17 @@ pipeline{
                 }
             }
         }
+        stage('Deploy to Kubernetes'){
+            steps{
+                script{
+                    withKubeConfig(caCertificate: 'C:\\Users\\Mykhailo\\.minikube\\ca.crt', clusterName: 'context_info', contextName: 'minikube', credentialsId: '', namespace: 'default', restrictKubeConfigAccess: false, serverUrl: 'https://127.0.0.1:58250') {
+                        sh "sed -i 's,TEST_IMAGE_NAME,misharyduk/fitsynergy-app,' deploymentservice.yaml"
+                                  sh "cat deploymentservice.yaml"
+                                  sh "kubectl get pods"
+                                  sh "kubectl apply -f deploymentservice.yaml"
+                    }
+                }
+            }
+        }
     }
 }
